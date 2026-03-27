@@ -19,6 +19,11 @@
     .back { display: inline-block; margin-bottom: 1.5rem; color: #8A8378; text-decoration: none; font-size: 0.9rem; }
     .back:hover { color: #C47D5A; }
     .footer { text-align: center; margin-top: 3rem; color: #5A5750; font-size: 0.85rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { border: 1px solid #5A4A3A; padding: 0.5rem 0.75rem; text-align: left; color: #C8C0B4; font-size: 0.9rem; }
+    th { background: #1A1528; color: #C47D5A; font-weight: bold; }
+    td { background: #12101E; }
+    tr:hover td { background: #1A1528; }
   </style>
 </head>
 <body>
@@ -27,7 +32,9 @@
     <h1>Privacy Policy</h1>
     <p class="updated">Last updated: March 27, 2026</p>
 
-    <p>CrushIT ("we", "us", "our") operates the Tarot Deck mobile application ("the App"). This Privacy Policy explains how we collect, use, and protect your information.</p>
+    <h2>Data Controller</h2>
+    <p>CrushIT, operated by Roman Nikitin, based in Spain ("we", "us", "our"), is the data controller for the Tarot Deck mobile application ("the App").</p>
+    <p><strong>Contact</strong>: <a href="mailto:r.nikitin.crushitapp@gmail.com">r.nikitin.crushitapp@gmail.com</a></p>
 
     <h2>Information We Collect</h2>
 
@@ -40,17 +47,54 @@
 
     <h3>Information Collected Automatically</h3>
     <ul>
-      <li><strong>Usage analytics</strong>: We use PostHog to collect anonymized usage data such as screens viewed, features used, and app events. This data does not identify you personally.</li>
-      <li><strong>Device information</strong>: Device type, operating system version, app version, and language preference.</li>
+      <li><strong>Usage analytics</strong>: We use PostHog (hosted in the EU) to collect anonymized usage data such as screens viewed, features used, and app events. This helps us improve the App. You may opt out of analytics in Settings.</li>
+      <li><strong>Device information</strong>: Device type, operating system version, app version, timezone, and language preference.</li>
       <li><strong>Push notification tokens</strong>: If you enable notifications, we store your device's push token to send reminders.</li>
     </ul>
 
     <h3>Information We Do NOT Collect</h3>
     <ul>
-      <li>We do not collect payment information. All purchases are processed by Apple or Google.</li>
-      <li>We do not collect precise real-time location. Location is set manually or once via GPS.</li>
-      <li>We do not collect contacts, photos, or other personal files.</li>
+      <li>We do not collect payment information. All purchases are processed by Apple (App Store) or Google (Play Store).</li>
+      <li>We do not collect precise real-time location tracking. Location is set once manually or via GPS and stored locally.</li>
+      <li>We do not collect contacts, photos, health data, or other personal files.</li>
+      <li>We do not engage in profiling or automated decision-making as defined by GDPR Art. 22.</li>
     </ul>
+
+    <h2>Legal Basis for Processing (GDPR Art. 6)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Processing Activity</th>
+          <th>Legal Basis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Account creation &amp; authentication</td>
+          <td>Consent (Art. 6(1)(a))</td>
+        </tr>
+        <tr>
+          <td>App functionality (readings, journal, sync)</td>
+          <td>Contract performance (Art. 6(1)(b))</td>
+        </tr>
+        <tr>
+          <td>Push notifications</td>
+          <td>Consent (Art. 6(1)(a)) — opt-in required</td>
+        </tr>
+        <tr>
+          <td>Usage analytics</td>
+          <td>Legitimate interest (Art. 6(1)(f)) — improving the App</td>
+        </tr>
+        <tr>
+          <td>Purchase verification</td>
+          <td>Contract performance (Art. 6(1)(b))</td>
+        </tr>
+        <tr>
+          <td>Security &amp; fraud prevention</td>
+          <td>Legitimate interest (Art. 6(1)(f))</td>
+        </tr>
+      </tbody>
+    </table>
 
     <h2>How We Use Your Information</h2>
     <ul>
@@ -61,63 +105,147 @@
       <li><strong>Purchases</strong>: To verify and deliver cosmetic items you purchase.</li>
     </ul>
 
-    <h2>Data Storage</h2>
+    <h2>Data Storage &amp; Transfers</h2>
     <ul>
       <li><strong>Local-first</strong>: All data is stored on your device first. The App works fully offline without an account.</li>
-      <li><strong>Cloud sync</strong>: If you sign in, data is synced to Supabase (hosted in the EU) for backup and cross-device access.</li>
-      <li><strong>Cosmetic assets</strong>: Purchased card decks and card backs are cached on your device.</li>
+      <li><strong>Cloud sync</strong>: If you sign in, data is synced to Supabase (servers in the EU — Frankfurt, Germany) for backup and cross-device access.</li>
+      <li><strong>Analytics</strong>: PostHog is hosted in the EU (Frankfurt). No personal data leaves the EU.</li>
+      <li><strong>Purchase verification</strong>: RevenueCat processes purchase receipts. RevenueCat is a US-based company with EU Standard Contractual Clauses (SCCs) in place for GDPR compliance.</li>
+      <li><strong>Authentication</strong>: Apple and Google process authentication data under their respective privacy policies and GDPR commitments.</li>
+      <li><strong>Cosmetic assets</strong>: Purchased card decks and card backs are cached locally on your device.</li>
     </ul>
 
+    <h2>Data Processors</h2>
+    <p>We use the following third-party processors, all with Data Processing Agreements (DPAs) or equivalent safeguards:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Processor</th>
+          <th>Purpose</th>
+          <th>Data Location</th>
+          <th>Safeguards</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Supabase</td>
+          <td>Database, auth, storage</td>
+          <td>EU (Frankfurt)</td>
+          <td>GDPR-compliant, DPA</td>
+        </tr>
+        <tr>
+          <td>PostHog</td>
+          <td>Analytics</td>
+          <td>EU (Frankfurt)</td>
+          <td>GDPR-compliant, DPA</td>
+        </tr>
+        <tr>
+          <td>RevenueCat</td>
+          <td>Purchase verification</td>
+          <td>US</td>
+          <td>Standard Contractual Clauses</td>
+        </tr>
+        <tr>
+          <td>Apple</td>
+          <td>Authentication, IAP</td>
+          <td>US/EU</td>
+          <td>GDPR commitments</td>
+        </tr>
+        <tr>
+          <td>Google</td>
+          <td>Authentication</td>
+          <td>US/EU</td>
+          <td>Standard Contractual Clauses</td>
+        </tr>
+      </tbody>
+    </table>
+
     <h2>Data Sharing</h2>
-    <p>We do <strong>not</strong> sell, rent, or share your personal information with third parties, except:</p>
-    <ul>
-      <li><strong>Supabase</strong>: Cloud database and authentication (data processor).</li>
-      <li><strong>PostHog</strong>: Analytics (anonymized data only).</li>
-      <li><strong>RevenueCat</strong>: Purchase verification (receipts only).</li>
-      <li><strong>Apple/Google</strong>: Authentication (when you sign in).</li>
-      <li><strong>Legal requirements</strong>: If required by law.</li>
-    </ul>
+    <p>We do <strong>not</strong> sell, rent, or share your personal information with third parties for marketing purposes. Data is shared only with the processors listed above for the purposes described, and when required by law.</p>
 
     <h2>Your Rights</h2>
     <p>You can:</p>
     <ul>
-      <li><strong>Access</strong> your data through the App.</li>
-      <li><strong>Delete</strong> your account by contacting r.nikitin.crushitapp@gmail.com.</li>
-      <li><strong>Export</strong> your reading history through the Journal.</li>
-      <li><strong>Disable</strong> notifications at any time.</li>
+      <li><strong>Access</strong> your data through the App (Profile, Journal, Settings).</li>
+      <li><strong>Delete</strong> your account and all associated data by contacting us.</li>
+      <li><strong>Export</strong> your reading history through the Journal screen.</li>
+      <li><strong>Opt out</strong> of analytics in Settings.</li>
+      <li><strong>Disable</strong> notifications at any time through Settings or your device settings.</li>
+      <li><strong>Withdraw consent</strong> for any processing based on consent, without affecting prior processing.</li>
     </ul>
-    <h3>GDPR Rights (EU/EEA Users)</h3>
+
+    <h3>GDPR Rights (Art. 15-22)</h3>
     <p>As our operations are based in Spain, we comply with the General Data Protection Regulation (GDPR). You have the right to:</p>
     <ul>
-      <li><strong>Access</strong> your personal data and receive a copy.</li>
-      <li><strong>Rectification</strong> of inaccurate data.</li>
-      <li><strong>Erasure</strong> ("right to be forgotten") — request deletion of your data.</li>
-      <li><strong>Data portability</strong> — receive your data in a structured, machine-readable format.</li>
-      <li><strong>Object</strong> to processing of your data.</li>
-      <li><strong>Withdraw consent</strong> at any time.</li>
+      <li><strong>Access</strong> (Art. 15) — receive a copy of your personal data.</li>
+      <li><strong>Rectification</strong> (Art. 16) — correct inaccurate data.</li>
+      <li><strong>Erasure</strong> (Art. 17) — "right to be forgotten," request deletion of your data.</li>
+      <li><strong>Restriction</strong> (Art. 18) — restrict processing in certain circumstances.</li>
+      <li><strong>Data portability</strong> (Art. 20) — receive your data in a structured, machine-readable format (JSON).</li>
+      <li><strong>Object</strong> (Art. 21) — object to processing based on legitimate interest.</li>
+      <li><strong>Withdraw consent</strong> (Art. 7(3)) — at any time, without affecting prior lawful processing.</li>
     </ul>
-    <p>To exercise these rights, contact us at r.nikitin.crushitapp@gmail.com. We will respond within 30 days.</p>
+    <p>To exercise these rights, contact us at <a href="mailto:r.nikitin.crushitapp@gmail.com">r.nikitin.crushitapp@gmail.com</a>. We will respond without undue delay, and in any event within 30 days (extendable by 60 days for complex requests, with notification).</p>
     <p>You may also lodge a complaint with the Spanish Data Protection Authority (AEPD): <a href="https://www.aepd.es">www.aepd.es</a>.</p>
-    <p><strong>Legal basis for processing:</strong> Consent (account creation, notifications), legitimate interest (analytics, app improvement), contract performance (providing the service and purchases).</p>
 
     <h2>Children's Privacy</h2>
-    <p>The App is not directed at children under 13 (or 16 in the EU). We do not knowingly collect information from children.</p>
+    <p>The App is not directed at children under 16 in the EU or under 13 elsewhere. We do not knowingly collect information from children. If we become aware that a child has provided personal data, we will delete it promptly.</p>
 
     <h2>Data Retention</h2>
-    <ul>
-      <li><strong>Account data</strong>: Retained until you delete your account.</li>
-      <li><strong>Analytics</strong>: Anonymized, retained up to 12 months.</li>
-      <li><strong>Push tokens</strong>: Removed when you sign out or uninstall.</li>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Retention Period</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Account data</td>
+          <td>Until you delete your account</td>
+        </tr>
+        <tr>
+          <td>Journal entries &amp; readings</td>
+          <td>Until you delete them or your account</td>
+        </tr>
+        <tr>
+          <td>Analytics (anonymized)</td>
+          <td>Up to 12 months</td>
+        </tr>
+        <tr>
+          <td>Push tokens</td>
+          <td>Removed on sign out or uninstall</td>
+        </tr>
+        <tr>
+          <td>Purchase records</td>
+          <td>Retained for legal/tax obligations (up to 7 years)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>After account deletion, all personal data is removed from our servers within 30 days, except where retention is required by law.</p>
 
     <h2>Security</h2>
-    <p>We use industry-standard measures including encrypted connections (TLS), row-level security policies, and secure token storage.</p>
+    <p>We implement appropriate technical and organizational measures (GDPR Art. 32):</p>
+    <ul>
+      <li>Encrypted connections (TLS/HTTPS) for all data in transit.</li>
+      <li>Row-level security (RLS) policies ensuring users access only their own data.</li>
+      <li>Secure token storage on device (expo-secure-store).</li>
+      <li>Authentication via established providers (Apple, Google) — we never store passwords.</li>
+      <li>Regular access review of database and storage permissions.</li>
+    </ul>
 
-    <h2>Changes</h2>
-    <p>We may update this policy from time to time. Significant changes will be communicated through the App.</p>
+    <h2>Changes to This Policy</h2>
+    <p>We will notify you of material changes to this policy through:</p>
+    <ul>
+      <li>An in-app notification or prompt.</li>
+      <li>Updating the "Last updated" date at the top.</li>
+    </ul>
+    <p>For significant changes affecting your rights or how we process your data, we will provide at least 14 days' notice before the changes take effect. Continued use after the notice period constitutes acceptance.</p>
 
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:r.nikitin.crushitapp@gmail.com">r.nikitin.crushitapp@gmail.com</a></p>
+    <p>If you have questions about this Privacy Policy or wish to exercise your GDPR rights:</p>
+    <p><strong>Email</strong>: <a href="mailto:r.nikitin.crushitapp@gmail.com">r.nikitin.crushitapp@gmail.com</a></p>
+    <p><strong>Data Protection Authority</strong>: AEPD — <a href="https://www.aepd.es">www.aepd.es</a></p>
 
     <p class="footer">&copy; 2026 CrushIT</p>
   </div>
