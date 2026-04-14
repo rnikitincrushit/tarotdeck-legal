@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SKEIN | Daily Tarot Ritual</title>
+<!-- Favicon & Icons -->
+<link href="{{DATA:IMAGE:IMAGE_5}}" rel="icon" type="image/png"/>
+<link href="{{DATA:IMAGE:IMAGE_5}}" rel="apple-touch-icon"/>
+<!-- OG Meta -->
+<meta content="SKEIN | Daily Tarot Ritual" property="og:title"/>
+<meta content="A digital sanctuary for introspection and ritual." property="og:description"/>
+<meta content="{{DATA:IMAGE:IMAGE_6}}" property="og:image"/>
+<meta content="680" property="og:image:width"/>
+<meta content="1520" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alice&amp;family=Great+Vibes&amp;family=Inter:wght@400;500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#6f381a",
+                        "on-tertiary-container": "#461f02",
+                        "on-primary-container": "#4a1c02",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#303036",
+                        "on-secondary": "#323029",
+                        "surface-variant": "#35343a",
+                        "on-secondary-fixed-variant": "#49473e",
+                        "inverse-primary": "#8b4e2f",
+                        "primary-fixed": "#ffdbcc",
+                        "on-surface-variant": "#d8c2b9",
+                        "on-primary": "#532206",
+                        "on-secondary-fixed": "#1d1c15",
+                        "tertiary-fixed-dim": "#fcb88e",
+                        "surface-container-lowest": "#0e0e13",
+                        "surface-container-highest": "#35343a",
+                        "on-tertiary-fixed": "#321300",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#49473e",
+                        "surface-container-high": "#2a292f",
+                        "on-tertiary-fixed-variant": "#693b1b",
+                        "surface-container-low": "#1b1b20",
+                        "surface": "#131318",
+                        "secondary-fixed-dim": "#cbc6bb",
+                        "on-primary-fixed": "#351000",
+                        "surface-tint": "#ffb693",
+                        "on-background": "#e4e1e9",
+                        "outline-variant": "#53433d",
+                        "primary": "#ffb693",
+                        "secondary": "#cbc6bb",
+                        "primary-container": "#c77f5c",
+                        "outline": "#a08d84",
+                        "background": "#131318",
+                        "tertiary-fixed": "#ffdbc8",
+                        "on-surface": "#e4e1e9",
+                        "tertiary-container": "#bf835d",
+                        "primary-fixed-dim": "#ffb693",
+                        "error-container": "#93000a",
+                        "tertiary": "#fcb88e",
+                        "surface-bright": "#39383e",
+                        "surface-dim": "#131318",
+                        "error": "#ffb4ab",
+                        "surface-container": "#1f1f25",
+                        "inverse-surface": "#e4e1e9",
+                        "on-tertiary": "#4e2507",
+                        "on-secondary-container": "#b9b5aa"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Alice", "serif"],
+                        "body": ["Newsreader", "serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "serif": ["Alice", "serif"],
+                        "script": ["Great Vibes", "cursive"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+        }
+        .grain {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuABdPhPyE_64PsrCCe73VkWApEbvq2k7tQ4gCkv4Eli9PM_9-eXLnyNqElIYwSxdTncEk0lq-b41cLrKsyU9_4ZM0X-cic9T_EFu7xSIPv4MjZcNu2qAEK6KZ2rmuoR4uN2yk0KYmbv-hTJME81tvaeIloSrvFcZBFk-8ouZbs49SosUIyb8BDux07VtIvDvyZWzV2pPYfgr0G5EnXBf0SLkSdJ9oAAuoJ_9q-AoUIKjjgG0Z7IhlGUzXeQjhXti4_81x2mXvHQbQ);
+            opacity: 0.04;
+            pointer-events: none
+        }
+        .copper-glow {
+            box-shadow: 0 0 25px rgba(196, 125, 90, 0.2)
+        }
+        .glass {
+            background: rgba(26, 26, 36, 0.6);
+            backdrop-filter: blur(20px)
+        }
+        ::selection {
+            background: #C47D5A;
+            color: #F0EDE5
+        }
+        @keyframes breathe {
+            0%, 100% { filter: drop-shadow(0 0 40px rgba(196, 125, 90, 0.2)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 60px rgba(196, 125, 90, 0.4)); transform: scale(1.01); }
+        }
+        .animate-breathe {
+            animation: breathe 8s ease-in-out infinite;
+        }
+        /* iPhone Mockup Styles */
+        .iphone-frame {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            background: #bebebe; /* Natural Titanium approximation */
+            border-radius: 44px;
+            padding: 10px;
+            box-shadow: inset 0 0 2px 2px rgba(255,255,255,0.1), 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .iphone-screen {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 36px;
+            overflow: hidden;
+            border: 1px solid #1a1a1a;
+        }
+        .iphone-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 22px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 10;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .carousel-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #4a4a54; border: none; cursor: pointer;
+            transition: background 0.3s, width 0.3s; padding: 0;
+        }
+        .carousel-dot.active {
+            background: #C47D5A; width: 20px; border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-[#0A0A0F] text-[#C8C3B8] font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<div class="fixed inset-0 grain z-[60]"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0A0A0F]/60 backdrop-blur-xl">
+<div class="flex justify-between items-center w-full px-8 py-6 mx-auto max-w-[1920px]">
+<div class="font-serif text-[#C47D5A] uppercase" style="font-size: 18px; letter-spacing: 0.2em;">SKEIN</div>
+<div class="hidden md:flex items-center gap-12 font-serif text-[#F0EDE5] tracking-wide">
+<a class="text-[#C47D5A] border-b border-[#C47D5A]/30 pb-1 hover:text-[#D4956E] transition-colors duration-500" href="#">Ritual</a>
+<a class="text-[#C8C3B8] hover:text-[#F0EDE5] transition-colors duration-500" href="#">Journal</a>
+<a class="text-[#C8C3B8] hover:text-[#F0EDE5] transition-colors duration-500" href="#">Decks</a>
+<a class="text-[#C8C3B8] hover:text-[#F0EDE5] transition-colors duration-500" href="#">Founder</a>
+</div>
+<div class="flex items-center gap-4 text-[#C47D5A]">
+<span class="material-symbols-outlined text-2xl cursor-pointer">account_circle</span>
+</div>
+</div>
+</nav>
+<main class="relative">
+<!-- 1. Hero Section Redesign -->
+<section class="min-h-screen flex flex-col md:flex-row items-center justify-center relative px-8 md:px-24 overflow-hidden pt-20">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A0A0F] z-10"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-radial from-[#C47D5A]/10 via-transparent to-transparent opacity-50 z-0"></div>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+<!-- Left: Brand Content -->
+<div class="flex-1 text-center md:text-left space-y-8 flex flex-col items-center md:items-start">
+<img alt="SKEIN Brand Mark" class="animate-breathe w-64 md:w-80 h-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ugLL0t0UZajC41cQ1IFeYVj3jfywc31CAlw-L8C6qt0J8J2cDOJ9RYx07G3vZlL31UKbH1z8fkF3egm79DBV6QddQcVds_0fxlnxeRrp9RMRVB7KdSEQLd56ZVTy_vJ8rhHI13wZvnI5ZssXuAlqgTIYEqE3hgk_rglnYEICKMHq6MA5J-djxRK28yGdIR86CXquFz_bMUM0lm1tj47ayjGCfMI1EUXXq0OManYsPcYHirVAqetp_DiY4OcIgXw--vs4g5TVVgE"/>
+<div class="space-y-4">
+<p class="font-label text-sm uppercase tracking-[0.4em] text-[#C8C3B8]">The Digital Sanctuary for your Daily Tarot Ritual</p>
+<h1 class="font-serif text-5xl md:text-7xl text-[#F0EDE5] leading-tight">Intuition <br/><span class="text-[#C47D5A]">Unthreaded.</span></h1>
+</div>
+<div class="pt-4 flex flex-col sm:flex-row gap-6">
+<button class="bg-gradient-to-r from-primary-container to-on-primary-fixed-variant text-on-primary px-10 py-4 rounded-md font-label uppercase text-sm tracking-widest copper-glow hover:scale-105 transition-all duration-500">
+                        Join the Waitlist
+                    </button>
+<button class="border border-[#C47D5A]/30 text-[#F0EDE5] px-10 py-4 rounded-md font-label uppercase text-sm tracking-widest hover:bg-[#C47D5A]/10 transition-all duration-500">
+                        Explore Rituals
+                    </button>
+</div>
+</div>
+<!-- Right: iPhone Mockup -->
+<div class="flex-1 flex justify-center md:justify-end relative">
+<div class="iphone-frame animate-breathe">
+<div class="iphone-notch"></div>
+<div class="iphone-screen">
+<!-- Star Sky UI -->
+<div class="w-full h-full bg-[#0A0A0F] relative overflow-hidden flex flex-col items-center justify-center p-6">
+<div class="absolute inset-0 opacity-40">
+<img alt="stars" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-QvV0nK8K_x-vE7m_8S8u5f7m-U2Z9I-D0_7X8u-K-U8v-M-V-W-X-Y-Z"/>
+</div>
+<div class="relative z-10 text-center space-y-4">
+<span class="material-symbols-outlined text-[#C47D5A] text-5xl">auto_awesome</span>
+<h3 class="font-serif text-2xl text-[#F0EDE5]">Tap to Pull</h3>
+<p class="text-xs text-[#C8C3B8]/60 font-label tracking-widest uppercase">The thread is ready</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+<span class="material-symbols-outlined text-3xl">expand_more</span>
+</div>
+</section>
+<!-- 2. The 'You' Moment -->
+<section class="py-24 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="space-y-6 text-center md:text-left group">
+<span class="material-symbols-outlined text-4xl text-[#C47D5A] block mb-4 group-hover:scale-110 transition-transform">style</span>
+<h3 class="font-serif text-3xl text-[#F0EDE5]">Your shuffle</h3>
+<p class="text-[#C8C3B8] leading-relaxed">No algorithms. No pseudo-random generators. Just the weight of your focus guiding the cards as they tumble in digital space.</p>
+</div>
+<div class="space-y-6 text-center md:text-left group">
+<span class="material-symbols-outlined text-4xl text-[#C47D5A] block mb-4 group-hover:scale-110 transition-transform">touch_app</span>
+<h3 class="font-serif text-3xl text-[#F0EDE5]">Your choice</h3>
+<p class="text-[#C8C3B8] leading-relaxed">Select your path. The interface recedes, leaving only you and the deck. Intuition is the only interface that matters here.</p>
+</div>
+<div class="space-y-6 text-center md:text-left group">
+<span class="material-symbols-outlined text-4xl text-[#C47D5A] block mb-4 group-hover:scale-110 transition-transform">auto_stories</span>
+<h3 class="font-serif text-3xl text-[#F0EDE5]">Your reading</h3>
+<p class="text-[#C8C3B8] leading-relaxed">Deeply personal interpretations that provoke reflection, not just predictions. A conversation between your present and your potential.</p>
+</div>
+</div>
+</section>
+<!-- NEW: "See it in action" Carousel -->
+<section class="py-32 px-8 overflow-hidden bg-surface">
+<div class="max-w-7xl mx-auto mb-16 text-center">
+<h2 class="font-serif text-4xl md:text-5xl text-[#F0EDE5]">Intuition, Digitalized.</h2>
+<p class="mt-4 font-label text-xs uppercase tracking-[0.3em] text-[#C47D5A]">Explore the SKEIN Interface</p>
+</div>
+<div class="flex gap-8 overflow-x-auto pb-12 px-8 hide-scrollbar snap-x cursor-grab active:cursor-grabbing">
+<!-- Carousel Item 1: Star Sky -->
+<div class="flex-shrink-0 snap-center">
+<div class="iphone-frame" style="width: 260px; height: 520px;">
+<div class="iphone-notch"></div>
+<div class="iphone-screen bg-[#0A0A0F] flex flex-col items-center justify-center p-4">
+<img alt="stars" class="absolute inset-0 w-full h-full object-cover opacity-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-QvV0nK8K_x-vE7m_8S8u5f7m-U2Z9I-D0_7X8u-K-U8v-M-V-W-X-Y-Z"/>
+<div class="relative z-10 text-center space-y-4">
+<span class="material-symbols-outlined text-[#C47D5A] text-4xl">auto_awesome</span>
+<p class="font-serif text-xl text-[#F0EDE5]">Star Sky</p>
+</div>
+</div>
+</div>
+<p class="text-center mt-6 font-label text-[10px] uppercase tracking-widest text-[#C8C3B8]">01. Your Sanctuary Space</p>
+</div>
+<!-- Carousel Item 2: Shuffle -->
+<div class="flex-shrink-0 snap-center">
+<div class="iphone-frame" style="width: 260px; height: 520px;">
+<div class="iphone-notch"></div>
+<div class="iphone-screen bg-[#0A0A0F] flex flex-col items-center justify-center p-4">
+<div class="grid grid-cols-2 gap-2 opacity-40">
+<div class="w-16 h-24 border border-[#C47D5A]/30 rounded"></div>
+<div class="w-16 h-24 border border-[#C47D5A]/30 rounded translate-y-4"></div>
+</div>
+<div class="relative z-10 text-center mt-8">
+<p class="font-serif text-xl text-[#F0EDE5]">Table Shuffle</p>
+</div>
+</div>
+</div>
+<p class="text-center mt-6 font-label text-[10px] uppercase tracking-widest text-[#C8C3B8]">02. Haptic Deck Control</p>
+</div>
+<!-- Carousel Item 3: Reading -->
+<div class="flex-shrink-0 snap-center">
+<div class="iphone-frame" style="width: 260px; height: 520px;">
+<div class="iphone-notch"></div>
+<div class="iphone-screen bg-[#0A0A0F] flex flex-col items-center p-6 pt-16">
+<div class="w-32 h-48 border border-[#C47D5A]/50 rounded-lg mb-6 flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_I-4dkQQF13gYA-CRXgJY68322b06tQ9KUAbWcu-xCRtP1ZaEgH5Ee5MlHwrE_FrqR7ag56KDtNeb0DBBvr_RRbJwjEBzKJlDOt7urG_KkV9S5Xb2U8Gj1huedzYue5OnBSqj8U5sRj74zD9Sk8U3iur01k4EXo7xPabUKbAHvz9jOkmbl_mlDlr8-nETU23zC0i5Ckkc1pJUnsuzaQO4oN0tPT96GHoYdYY7s-aidNSzVVnHXiIvroFq_D_wTF9yq2bKhEHm9A"/>
+</div>
+<p class="font-serif text-xl text-[#F0EDE5]">The Star</p>
+<p class="text-[10px] uppercase tracking-widest text-[#C47D5A] mt-2">Reading Interpretation</p>
+</div>
+</div>
+<p class="text-center mt-6 font-label text-[10px] uppercase tracking-widest text-[#C8C3B8]">03. Personal Insights</p>
+</div>
+<!-- Carousel Item 4: Journal -->
+<div class="flex-shrink-0 snap-center">
+<div class="iphone-frame" style="width: 260px; height: 520px;">
+<div class="iphone-notch"></div>
+<div class="iphone-screen bg-[#d6c4a0] p-6 text-[#4a1c02]">
+<div class="pt-8 space-y-4">
+<h4 class="font-serif text-lg border-b border-[#4a1c02]/20 pb-2">Mar 12, 2026</h4>
+<p class="text-sm font-serif italic">"The pull felt heavy today, like a secret waiting to be told..."</p>
+<div class="h-[1px] bg-[#4a1c02]/10 w-full"></div>
+</div>
+</div>
+</div>
+<p class="text-center mt-6 font-label text-[10px] uppercase tracking-widest text-[#C8C3B8]">04. Parchment Journal</p>
+</div>
+<!-- Carousel Item 5: Deck Shop -->
+<div class="flex-shrink-0 snap-center">
+<div class="iphone-frame" style="width: 260px; height: 520px;">
+<div class="iphone-notch"></div>
+<div class="iphone-screen bg-[#0A0A0F] p-4 flex flex-col gap-4 pt-12">
+<div class="h-24 bg-surface-container rounded-lg border border-white/5 flex items-center p-3 gap-3">
+<div class="w-12 h-16 bg-[#C47D5A]/20 rounded"></div>
+<div class="flex-1"><p class="font-serif text-sm">Copper Deck</p></div>
+</div>
+<div class="h-24 bg-surface-container rounded-lg border border-white/5 flex items-center p-3 gap-3">
+<div class="w-12 h-16 bg-[#C47D5A]/10 rounded"></div>
+<div class="flex-1"><p class="font-serif text-sm">Classic RWS</p></div>
+</div>
+</div>
+</div>
+<p class="text-center mt-6 font-label text-[10px] uppercase tracking-widest text-[#C8C3B8]">05. Deck Collection</p>
+</div>
+<!-- Carousel dots -->
+<div class="flex justify-center gap-2 mt-4 pb-8" id="carousel-dots">
+<button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+<button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+<button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+<button class="carousel-dot" data-slide="3" aria-label="Slide 4"></button>
+<button class="carousel-dot" data-slide="4" aria-label="Slide 5"></button>
+</div>
+</div>
+</section>
+<!-- 3. Celestial Upgrade -->
+<section class="py-32 px-8 relative overflow-hidden bg-surface-container-low">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 space-y-12 text-center md:text-left">
+<div class="inline-flex items-center gap-4 text-[#C47D5A] font-label text-xs uppercase tracking-widest border border-[#C47D5A]/20 px-4 py-2 rounded-full">
+<span class="w-2 h-2 rounded-full bg-[#C47D5A]"></span>
+                    Morning Star Sky
+                </div>
+<h2 class="font-serif text-5xl md:text-6xl text-[#F0EDE5] leading-tight">Aligned with the <br/><span class="text-[#C47D5A]">Celestial Clock.</span></h2>
+<p class="text-xl text-[#C8C3B8] max-w-lg mx-auto md:mx-0">SKEIN synchronizes with the actual moon phase and astrological transits in your location. Your daily draw is tethered to the tide and time.</p>
+<div class="p-8 border-l border-[#C47D5A]/30 space-y-4 text-left">
+<h4 class="font-label uppercase text-sm tracking-widest text-[#F0EDE5]">Streak Freeze</h4>
+<p class="text-sm text-[#C8C3B8]">Life happens. Rituals aren't about pressure. Our "Hibernation" mode preserves your journey history when you need space.</p>
+</div>
+</div>
+<div class="flex-1 flex justify-center">
+<div class="iphone-frame rotate-3 scale-90 md:scale-100">
+<div class="iphone-notch"></div>
+<div class="iphone-screen bg-[#0A0A0F] flex flex-col items-center justify-center">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-QvV0nK8K_x-vE7m_8S8u5f7m-U2Z9I-D0_7X8u-K-U8v-M-V-W-X-Y-Z"/>
+<div class="relative z-10 flex flex-col items-center gap-6">
+<span class="material-symbols-outlined text-7xl text-[#C47D5A]" style="font-variation-settings: 'FILL' 1;">brightness_2</span>
+<div class="text-center">
+<p class="font-serif text-3xl text-[#F0EDE5]">Waning Gibbous</p>
+<p class="font-label text-xs text-[#C47D5A] uppercase mt-2 tracking-widest">84% Illumination</p>
+</div>
+<div class="glass p-4 rounded-lg border border-[#C47D5A]/10 max-w-[200px] mt-4">
+<p class="text-[10px] uppercase tracking-tighter text-[#C8C3B8] mb-2">Astrological Ribbon</p>
+<p class="text-xs text-[#F0EDE5] font-serif italic">Moon in Scorpio. Deep emotional currents.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Journal Upgrade -->
+<section class="py-32 px-8 bg-surface">
+<div class="max-w-7xl mx-auto space-y-16">
+<div class="flex flex-col md:flex-row justify-between items-baseline gap-8">
+<h2 class="font-serif text-5xl text-[#F0EDE5]">The Living History</h2>
+<div class="h-[1px] flex-grow bg-[#1A1A24] hidden md:block mx-8 relative">
+<span class="absolute right-0 -top-2 text-[#C47D5A]">✦</span>
+</div>
+<button class="font-label uppercase text-xs tracking-[0.2em] text-[#C47D5A] hover:text-[#F0EDE5] transition-colors">View All Entries →</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Phone Left -->
+<div class="order-2 lg:order-1 flex justify-center">
+<div class="iphone-frame -rotate-2">
+<div class="iphone-notch"></div>
+<div class="iphone-screen bg-[#d6c4a0] flex flex-col text-[#4a1c02]">
+<div class="p-6 pt-16 flex flex-col gap-8 h-full">
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-[#4a1c02]/20 pb-2">
+<p class="font-serif text-xl">The Lovers</p>
+<p class="font-label text-[10px] uppercase tracking-widest">Yesterday</p>
+</div>
+<p class="text-sm font-serif leading-relaxed italic opacity-80">A decision presented itself at noon. I felt the card's warmth as I chose between the two paths...</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-[#4a1c02]/20 pb-2">
+<p class="font-serif text-xl">Seven of Cups</p>
+<p class="font-label text-[10px] uppercase tracking-widest">Monday</p>
+</div>
+<p class="text-sm font-serif leading-relaxed italic opacity-80">Felt scattered. The digital ink felt like a vessel for my chaos...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Content Right -->
+<div class="order-1 lg:order-2 space-y-8">
+<div class="glass p-10 rounded-lg border border-[#1A1A24] space-y-4">
+<p class="font-label text-xs uppercase tracking-widest text-[#C47D5A]">Log Physical Deck</p>
+<h3 class="font-serif text-3xl text-[#F0EDE5]">Manual Interpretation</h3>
+<p class="text-[#C8C3B8]">Already have a physical deck? Use SKEIN as your private, encrypted journal for offline rituals.</p>
+<span class="material-symbols-outlined text-4xl text-[#C47D5A] mt-4 block">edit_note</span>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="bg-surface-container-high p-8 rounded-lg text-center border border-[#1A1A24]">
+<p class="text-4xl font-serif text-[#C47D5A]">124</p>
+<p class="font-label text-[10px] uppercase tracking-widest text-[#C8C3B8] mt-2">Total Readings</p>
+</div>
+<div class="bg-surface-container-high p-8 rounded-lg text-center border border-[#1A1A24]">
+<p class="text-4xl font-serif text-[#C47D5A]">12</p>
+<p class="font-label text-[10px] uppercase tracking-widest text-[#C8C3B8] mt-2">Current Streak</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Card Library -->
+<section class="py-32 px-8">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="order-2 md:order-1 relative h-[600px] flex items-center justify-center">
+<div class="w-64 h-96 bg-[#1A1A24] rounded-lg border border-[#C47D5A]/20 copper-glow flex items-center justify-center relative overflow-hidden group">
+<img alt="Tarot Card" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_I-4dkQQF13gYA-CRXgJY68322b06tQ9KUAbWcu-xCRtP1ZaEgH5Ee5MlHwrE_FrqR7ag56KDtNeb0DBBvr_RRbJwjEBzKJlDOt7urG_KkV9S5Xb2U8Gj1huedzYue5OnBSqj8U5sRj74zD9Sk8U3iur01k4EXo7xPabUKbAHvz9jOkmbl_mlDlr8-nETU23zC0i5Ckkc1pJUnsuzaQO4oN0tPT96GHoYdYY7s-aidNSzVVnHXiIvroFq_D_wTF9yq2bKhEHm9A"/>
+<div class="relative z-10 text-center space-y-2 pointer-events-none">
+<p class="font-serif text-4xl text-[#F0EDE5]">The Star</p>
+<p class="font-label text-[10px] uppercase tracking-widest text-[#C47D5A]">Major Arcana XVII</p>
+</div>
+</div>
+<div class="absolute top-10 left-10 w-32 h-48 bg-[#1A1A24]/40 border border-[#1A1A24] -rotate-12 rounded-md blur-[2px]"></div>
+<div class="absolute bottom-10 right-10 w-32 h-48 bg-[#1A1A24]/40 border border-[#1A1A24] rotate-12 rounded-md blur-[2px]"></div>
+</div>
+<div class="order-1 md:order-2 space-y-8">
+<h2 class="font-serif text-5xl text-[#F0EDE5]">78 Keys to the <br/>Inward Path.</h2>
+<div class="space-y-6 text-[#C8C3B8]">
+<div class="pb-6 border-b border-[#1A1A24] space-y-2">
+<p class="font-label text-xs text-[#C47D5A] uppercase tracking-widest">Keywords</p>
+<p class="font-serif text-lg text-[#F0EDE5]">Hope, Inspiration, Serenity, Renewal</p>
+</div>
+<div class="pb-6 border-b border-[#1A1A24] space-y-2">
+<p class="font-label text-xs text-[#C47D5A] uppercase tracking-widest">Symbolism</p>
+<p class="italic">Water pouring into land and lake, the eight-pointed star, the naked truth of spirit.</p>
+</div>
+<div class="space-y-2">
+<p class="font-label text-xs text-[#C47D5A] uppercase tracking-widest">Reflection Question</p>
+<p class="font-serif text-lg italic text-[#F0EDE5]">"Where am I finding quiet hope in the midst of current noise?"</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Master Line -->
+<section class="py-64 px-8 text-center bg-surface-container-lowest">
+<div class="max-w-4xl mx-auto space-y-8">
+<span class="text-[#C47D5A] text-2xl">✦</span>
+<h2 class="font-serif text-5xl md:text-7xl text-[#F0EDE5] leading-snug drop-shadow-2xl">
+                The magic was never <br/>in the cards. <br/>It was in you.
+            </h2>
+<div class="w-24 h-[1px] bg-[#C47D5A]/40 mx-auto mt-12"></div>
+</div>
+</section>
+<!-- 7. The Decks -->
+<section class="py-32 px-8">
+<div class="max-w-7xl mx-auto space-y-16">
+<div class="text-center space-y-4">
+<h2 class="font-serif text-5xl text-[#F0EDE5]">Curated Archetypes</h2>
+<p class="font-label text-xs uppercase tracking-widest text-[#C8C3B8]">Switch your aesthetic focus anytime</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Deck 1 -->
+<div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
+<img alt="Copper Deck" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvHuHY3s9-xbxaVjIUfd85GC_DZhV1xL6eYS5M41PJgSpHVFsswZRt6XWNP19l6gdBDHfY_2lX1gntcOvM3Y6y1ejPTQ4MAz6v8aP2Fxvsm0ksOfiiBSPcBOA-pR0_T06Q-802OHw5IQzHPXU21djJ_tYRTCGHHDfyGCvMTP56jWr_293EJaS1rJOpnic_4j8kYMsw47hpGpyI7kxDOXK9-eEgtyCzjVmanJXqQCrLTOiGdbglFgFehDLM3BeTEJFx0Y8Swt4csg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+<h4 class="font-serif text-2xl text-[#F0EDE5]">The Copper</h4>
+<p class="font-label text-[10px] uppercase tracking-widest text-[#C47D5A]">SKEIN Standard</p>
+</div>
+</div>
+<!-- Deck 2 -->
+<div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
+<img alt="Classic Deck" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmuU9a60VEwjwUtPjF9IQk9_zRR7a8TzsAyP6CMEjMyPkJv1SW_x80W3hNaGfDMOwqZrQkFl7XFmMOhBG8XDlgd-uVod-3Njdk0TSi9NCCCCa1zJh5Yd7b8MXozKBmedjcMs-PoVP2Sc-izMnrZhY-Cmmbk_i9HQkOCuliEzzKHM8lvHUZl3azWkLWCMnTQbFndi8UQ9DMVJDOlxvDfEAfQAZjH04NdqSw74Zw1H2L3YM2mw51glop2lfK-2kC6J4Ft_cpL2_uTw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+<h4 class="font-serif text-2xl text-[#F0EDE5]">The Classic</h4>
+<p class="font-label text-[10px] uppercase tracking-widest text-[#C47D5A]">Rider-Waite-Smith</p>
+</div>
+</div>
+<!-- Deck 3 -->
+<div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
+<img alt="Whiskered Arcana" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxFd8U_09oUrwvu5FihUlcJ_xu8OYsIMBLZ-uY4-tfsQmDfEzDTCouHD6VhJA3KkMHD1D4sd2hcdqrQoQmUxmHP0wdkHjeQJalyL27QIrc1RJ2qlBRgndSZqiKo3hhGyXPxuexMwY582yFdsLTR6wV3Jao7Sc0gLqPYBgHjkTPx7jlYxoCvpM0slCZWodyaj97jWImOzycUGvKZyxqgL1Ipi16-vrHsJT9aXbZ_oBwW1OfzJngYwIFnKVxnO4HtyhkwX3Uh428-w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+<h4 class="font-serif text-2xl text-[#F0EDE5]">Whiskered Arcana</h4>
+<p class="font-label text-[10px] uppercase tracking-widest text-[#C47D5A]">The Feline Path</p>
+</div>
+</div>
+<!-- Deck 4 -->
+<div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
+<img alt="Moonlit Lore" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8FtAH3sLxY--YuXeP0smJYUZUPGyc1UjBUMxgwyl113YJmN_c2vEQfOOCCI2k9LHsdYyy7h-gxVFM4rgKt7IqXC7ax0i-fXtsoydyBzJ1sHFnvPB_tNJO_r0dGwGJ1LP9RcWOQFFO-1BksdJSmQ2m1xVifr3yDHgJaZ7hd6B-dhQ2C7TttIfctkjSJK9EcOQLyUcMbnwXOylQVB3no0F2NjJRlLlBx7cP0M7BcRAvNXiEydZLLXa_CVVx4SF0Fc39SR_kOWcaww"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+<h4 class="font-serif text-2xl text-[#F0EDE5]">Moonlit Lore</h4>
+<p class="font-label text-[10px] uppercase tracking-widest text-[#C47D5A]">Shadow Work Edition</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. Gamification / Tiers -->
+<section class="py-32 px-8 bg-surface-container-high relative">
+<div class="max-w-7xl mx-auto space-y-16">
+<div class="flex flex-col md:flex-row gap-16 items-center">
+<div class="flex-1 space-y-6 text-center md:text-left">
+<h2 class="font-serif text-5xl text-[#F0EDE5]">Karma &amp; Evolution</h2>
+<p class="text-xl text-[#C8C3B8]">Deepen your practice to unlock aesthetic evolutions. No paywalls. No ads. Just the growth of your intent.</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
+<span class="px-4 py-2 border border-[#C47D5A]/20 text-[#C47D5A] text-[10px] uppercase tracking-widest rounded-full">Novice</span>
+<span class="px-4 py-2 border border-[#C47D5A]/20 text-[#C47D5A] text-[10px] uppercase tracking-widest rounded-full">Seeker</span>
+<span class="px-4 py-2 border border-[#C47D5A]/40 bg-[#C47D5A]/10 text-[#F0EDE5] text-[10px] uppercase tracking-widest rounded-full">Practitioner</span>
+<span class="px-4 py-2 border border-[#C47D5A]/20 text-[#C47D5A] text-[10px] uppercase tracking-widest rounded-full opacity-50">Elder</span>
+<span class="px-4 py-2 border border-[#C47D5A]/20 text-[#C47D5A] text-[10px] uppercase tracking-widest rounded-full opacity-50">Oracle</span>
+</div>
+</div>
+<div class="flex-1 w-full glass p-10 rounded-lg space-y-8 border border-[#C47D5A]/10">
+<div class="flex justify-between items-center">
+<h4 class="font-serif text-2xl text-[#F0EDE5]">Current Standing</h4>
+<span class="material-symbols-outlined text-[#C47D5A]">military_tech</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs uppercase tracking-widest text-[#C8C3B8]">
+<span>Practitioner Tier</span>
+<span>450 / 1000 KP</span>
+</div>
+<div class="w-full h-1 bg-[#1A1A24] rounded-full overflow-hidden">
+<div class="w-[45%] h-full bg-[#C47D5A]"></div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="text-center p-4 bg-surface-container-highest rounded-md">
+<span class="material-symbols-outlined text-[#C47D5A] mb-2">auto_awesome</span>
+<p class="text-[9px] uppercase tracking-tighter text-[#C8C3B8]">Visual Glow</p>
+</div>
+<div class="text-center p-4 bg-surface-container-highest rounded-md">
+<span class="material-symbols-outlined text-[#C47D5A] mb-2">history_edu</span>
+<p class="text-[9px] uppercase tracking-tighter text-[#C8C3B8]">Old Ink Skin</p>
+</div>
+<div class="text-center p-4 bg-surface-container-highest rounded-md opacity-30">
+<span class="material-symbols-outlined mb-2">lock</span>
+<p class="text-[9px] uppercase tracking-tighter">Gold Leaf</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. Belief Statement -->
+<section class="py-48 px-8 text-center max-w-5xl mx-auto">
+<h3 class="font-label text-xs uppercase tracking-[0.5em] text-[#C47D5A] mb-12">The Sanctuary Pledge</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-24 text-left">
+<div class="space-y-4">
+<p class="font-serif text-4xl text-[#F0EDE5]">Free.</p>
+<p class="text-[#C8C3B8]">The basics of ritual should never be behind a toll. SKEIN is and will remain free to use.</p>
+</div>
+<div class="space-y-4">
+<p class="font-serif text-4xl text-[#F0EDE5]">Offline.</p>
+<p class="text-[#C8C3B8]">Your practice doesn't need a signal. Take your ritual into the woods, the mountains, or the dead of night.</p>
+</div>
+<div class="space-y-4">
+<p class="font-serif text-4xl text-[#F0EDE5]">No Ads.</p>
+<p class="text-[#C8C3B8]">A sacred space shouldn't try to sell you detergent. We maintain purity of focus.</p>
+</div>
+<div class="space-y-4">
+<p class="font-serif text-4xl text-[#F0EDE5]">No AI readings.</p>
+<p class="text-[#C8C3B8]">The cards are a mirror to your mind, not an output of a machine. Human intuition only.</p>
+</div>
+</div>
+</section>
+<!-- 10. Founder Note -->
+<section class="py-32 px-8 bg-surface-container-low border-y border-[#1A1A24]">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+<div class="w-full md:w-1/3 aspect-[4/5] relative rounded-lg overflow-hidden copper-glow">
+<img alt="Roman, Founder" class="w-full h-full object-cover grayscale brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzFYbYt0RsDShBDq9JzjZXmgWBP3Z8dK-0TffRBCNHJLOb_KIt_dFsd-dcLZkDIPJby5W5U4Pk-9G1GrjroW9WEQiCa9-qBSOAbkkwHt0ckYxTOWgOlXZSib3AXFsVQPAdKfZ0W1OlHc-NK866PrWYnKlDLQdyvRLgjjntyTGsPMxtWYIxqGol9aL3CNehBN3OXwhScx6j9CCaYC3iAEymqE-E0oaENxhtBCLE32Ac7x1DgFRlDoBgDA27x0SvL9D9wi6Zjr1IDA"/>
+</div>
+<div class="flex-1 space-y-8 text-center md:text-left">
+<div class="font-script text-3xl text-[#C47D5A]">The intent behind the code</div>
+<p class="font-serif text-3xl text-[#F0EDE5] leading-relaxed italic">"I built SKEIN because the digital world felt increasingly loud and extractive. I wanted a digital sanctuary—a tool that respects silence and invites introspection."</p>
+<div class="space-y-2">
+<p class="font-label text-sm uppercase tracking-widest text-[#F0EDE5]">Roman</p>
+<p class="font-label text-[10px] uppercase tracking-widest text-[#C47D5A]">Founder &amp; Seeker</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 11. Final CTA -->
+<section class="py-48 px-8 text-center relative overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C47D5A]/50 to-transparent"></div>
+</div>
+<div class="max-w-3xl mx-auto space-y-12 relative z-10">
+<h2 class="font-serif text-6xl text-[#F0EDE5]">Ready to pull <br/>the thread?</h2>
+<div class="space-y-6">
+<div class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+<input class="flex-grow bg-[#1A1A24] border-0 border-b border-[#C47D5A]/20 focus:ring-0 focus:border-[#C47D5A] text-sm text-[#F0EDE5] font-label px-4 py-4 transition-all" placeholder="YOUR EMAIL" type="email"/>
+<button class="bg-[#C47D5A] text-[#0A0A0F] font-label uppercase text-xs tracking-widest px-8 py-4 copper-glow">Begin</button>
+</div>
+<p class="text-[10px] uppercase tracking-widest text-[#C8C3B8]">Join 14,000 seekers in the circle.</p>
+</div>
+<div class="pt-12 flex justify-center items-center gap-12 text-[#C47D5A]">
+<a class="hover:text-[#F0EDE5] transition-colors" href="#"><span class="font-label text-[10px] uppercase tracking-[0.2em]">Instagram</span></a>
+<a class="hover:text-[#F0EDE5] transition-colors" href="#"><span class="font-label text-[10px] uppercase tracking-[0.2em]">TikTok</span></a>
+<a class="hover:text-[#F0EDE5] transition-colors" href="#"><span class="font-label text-[10px] uppercase tracking-[0.2em]">Reddit</span></a>
+</div>
+<div class="pt-16 opacity-30 flex flex-col items-center gap-4">
+<div class="w-16 h-16 border border-[#C47D5A]/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">qr_code_2</span>
+</div>
+<p class="text-[9px] uppercase tracking-tighter">Mobile Sanctuary Available Soon</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-24 px-8 border-t border-[#1A1A24] bg-[#0A0A0F]">
+<div class="max-w-7xl mx-auto flex flex-col items-center gap-12 text-center">
+<div class="mb-4">
+<img alt="SKEIN Brand Mark" class="h-24 w-auto object-contain mx-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ugLL0t0UZajC41cQ1IFeYVj3jfywc31CAlw-L8C6qt0J8J2cDOJ9RYx07G3vZlL31UKbH1z8fkF3egm79DBV6QddQcVds_0fxlnxeRrp9RMRVB7KdSEQLd56ZVTy_vJ8rhHI13wZvnI5ZssXuAlqgTIYEqE3hgk_rglnYEICKMHq6MA5J-djxRK28yGdIR86CXquFz_bMUM0lm1tj47ayjGCfMI1EUXXq0OManYsPcYHirVAqetp_DiY4OcIgXw--vs4g5TVVgE"/>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full pt-12 border-t border-[#1A1A24]/30">
+<div class="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C8C3B8]">
+                © 2026 Roman Nikitin · Made in Barcelona
+            </div>
+<div class="flex gap-8">
+<a class="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C8C3B8] hover:text-[#F0EDE5] transition-colors duration-300" href="#">Instagram</a>
+<a class="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C8C3B8] hover:text-[#F0EDE5] transition-colors duration-300" href="#">Privacy</a>
+<a class="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C8C3B8] hover:text-[#F0EDE5] transition-colors duration-300" href="#">Terms</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // Simple drag to scroll for carousel
+    const slider = document.querySelector('.hide-scrollbar');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('mouseleave', () => { isDown = false; });
+    slider.addEventListener('mouseup', () => { isDown = false; });
+    slider.addEventListener('mousemove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // Carousel dot indicators
+    const dots = document.querySelectorAll('.carousel-dot');
+    const slides = slider.querySelectorAll(':scope > div');
+    function updateDots() {
+        const gap = 32; // gap-8 = 2rem = 32px
+        const slideW = (slides[0]?.offsetWidth ?? 260) + gap;
+        const idx = Math.round(slider.scrollLeft / slideW);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+    slider.addEventListener('scroll', updateDots, { passive: true });
+    dots.forEach(d => d.addEventListener('click', () => {
+        const gap = 32;
+        const slideW = (slides[0]?.offsetWidth ?? 260) + gap;
+        slider.scrollTo({ left: parseInt(d.dataset.slide) * slideW, behavior: 'smooth' });
+    }));
+    updateDots();
+</script>
+</body></html>

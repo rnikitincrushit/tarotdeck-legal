@@ -165,6 +165,14 @@ html { scroll-behavior: smooth }
 }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.carousel-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #4a4a54; border: none; cursor: pointer;
+  transition: background 0.3s, width 0.3s; padding: 0;
+}
+.carousel-dot.active {
+  background: #C47D5A; width: 20px; border-radius: 3px;
+}
 </style>
 <!-- PostHog analytics — same project as the mobile app so web+app
      events live in one dashboard. UTM params are auto-captured by
@@ -279,12 +287,12 @@ Explore
 </div>
 </section>
 <!-- NEW: "See it in action" Carousel -->
-<section id="screens" class="py-32 px-8 overflow-hidden bg-surface">
-<div class="max-w-7xl mx-auto mb-16 text-center">
+<section id="screens" class="py-32 overflow-hidden bg-surface">
+<div class="max-w-7xl mx-auto mb-16 text-center px-8">
 <h2 class="font-serif text-4xl md:text-5xl text-[#F0EDE5]">See It in Action.</h2>
 <p class="mt-4 font-label text-xs uppercase tracking-[0.3em] text-[#C47D5A]">Swipe through the SKEIN experience</p>
 </div>
-<div class="flex gap-10 overflow-x-auto pb-12 pl-[max(2rem,calc((100vw-1280px)/2))] pr-8 hide-scrollbar snap-x cursor-grab active:cursor-grabbing" id="carousel">
+<div class="flex gap-4 overflow-x-auto pb-12 pl-6 pr-6 lg:pl-[max(2rem,calc((100vw-1280px)/2))] lg:pr-8 hide-scrollbar snap-x cursor-grab active:cursor-grabbing" id="carousel">
 <!-- 1: Star Sky — user opens the app -->
 <div class="flex-shrink-0 snap-center">
 <div class="iphone-frame" style="width: 280px; height: 570px;">
@@ -335,6 +343,13 @@ Explore
 </div>
 <p class="text-center mt-6 font-label text-[10px] uppercase tracking-widest text-[#C8C3B8]">05. Your Customization</p>
 </div>
+</div>
+<div class="flex justify-center gap-2 mt-2 pb-4 md:hidden" id="carousel-dots">
+<button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+<button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+<button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+<button class="carousel-dot" data-slide="3" aria-label="Slide 4"></button>
+<button class="carousel-dot" data-slide="4" aria-label="Slide 5"></button>
 </div>
 </section>
 <!-- 3. Daily Ritual & Moon -->
@@ -798,24 +813,81 @@ Explore
 })();
 
 // Drag-to-scroll for the screenshot carousel (desktop mouse support).
-// Touch devices use native scroll. Pointer-based drag feels like swiping.
+// Uses 1:1 movement ratio and prevents native image drag from hijacking.
 (function () {
   var slider = document.getElementById('carousel');
   if (!slider) return;
   var isDown = false, startX, scrollLeft;
+
+  // Prevent native image drag on all images inside the carousel —
+  // without this, the browser starts a drag-and-drop operation on the
+  // <img> element instead of scrolling the container.
+  slider.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
   slider.addEventListener('mousedown', function (e) {
     isDown = true;
-    startX = e.pageX - slider.offsetLeft;
+    slider.style.scrollSnapType = 'none';          // disable snap during drag
+    slider.style.userSelect = 'none';
+    startX = e.pageX;
     scrollLeft = slider.scrollLeft;
   });
-  slider.addEventListener('mouseleave', function () { isDown = false; });
-  slider.addEventListener('mouseup', function () { isDown = false; });
+
+  function endDrag() {
+    if (!isDown) return;
+    isDown = false;
+    slider.style.scrollSnapType = '';               // re-enable snap
+    slider.style.userSelect = '';
+  }
+
+  slider.addEventListener('mouseleave', endDrag);
+  slider.addEventListener('mouseup', endDrag);
   slider.addEventListener('mousemove', function (e) {
     if (!isDown) return;
     e.preventDefault();
-    var x = e.pageX - slider.offsetLeft;
-    slider.scrollLeft = scrollLeft - (x - startX) * 2;
+    slider.scrollLeft = scrollLeft - (e.pageX - startX);  // 1:1 ratio
   });
+})();
+
+// Carousel dot indicators — sync with scroll position.
+// Active dot = which slide is closest to the left edge of the viewport.
+// On tablet/desktop multiple slides are visible, so the last dot activates
+// when we've scrolled to the end (scrollLeft + clientWidth ≈ scrollWidth).
+(function () {
+  var slider = document.getElementById('carousel');
+  var dots = document.querySelectorAll('.carousel-dot');
+  var slides = slider ? slider.querySelectorAll(':scope > div') : [];
+  if (!slider || !dots.length || !slides.length) return;
+  var total = slides.length;
+
+  function update() {
+    var gap = 40;
+    var w = (slides[0].offsetWidth || 280) + gap;
+    var maxScroll = slider.scrollWidth - slider.clientWidth;
+    var idx;
+    // If near the end, snap to last dot
+    if (maxScroll > 0 && slider.scrollLeft >= maxScroll - 10) {
+      idx = total - 1;
+    } else {
+      idx = Math.min(Math.round(slider.scrollLeft / w), total - 1);
+    }
+    dots.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+  }
+
+  slider.addEventListener('scroll', update, { passive: true });
+  dots.forEach(function (d) {
+    d.addEventListener('click', function () {
+      var slideIdx = parseInt(d.dataset.slide);
+      var gap = 40;
+      var w = (slides[0].offsetWidth || 280) + gap;
+      // Last slide: scroll to end instead of calculated position
+      if (slideIdx >= total - 1) {
+        slider.scrollTo({ left: slider.scrollWidth, behavior: 'smooth' });
+      } else {
+        slider.scrollTo({ left: slideIdx * w, behavior: 'smooth' });
+      }
+    });
+  });
+  update();
 })();
 </script>
 </body></html>
